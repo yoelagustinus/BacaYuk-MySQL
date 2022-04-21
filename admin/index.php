@@ -1,7 +1,5 @@
 <?php
     require 'header.php';
-    require '../config.php';
-    require 'ControllerAdmin.php';
 
     if (isset($_SESSION['success'])) {
         
