@@ -1,24 +1,27 @@
 <?php
 
-require '../config.php';
-session_start();
+require '../controller/ControllerVisitor.php';
+// session_start();
 
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-    header("location: ../index.php");
-    exit;
-}
+// if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+//     header("location: ../index.php");
+//     exit;
+// }
 
-if (empty($_SESSION['email'])) {
-    header("Location: ../index.php");
-}
+// if (empty($_SESSION['email'])) {
+//     header("Location: ../index.php");
+// }
 
-$email = $_SESSION['email'];
+// $email = $_SESSION['email'];
 
-$user = $db->users->findOne([
-    'email' => $email,
-]);
+// $row_users = GetUser($email);
 
-$pg_category = $db->category->find();
+// while($row_users){
+//     $name_user = $row_users[1];
+// }
+
+
+// $pg_category = $db->category->find();
 
 ?>
 <!doctype html>
@@ -50,25 +53,26 @@ $pg_category = $db->category->find();
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
                                 <img src="../images/BacaYuk.png" alt="" width="40" height="40">
-                                <a class="navbar-brand fw-bold text-success" href="home.php">Baca Yuk</a>
+                                <a class="navbar-brand fw-bold text-success" href="index.php">Baca Yuk</a>
                             </li>
-                            <!-- <li class="nav-item">
+                            <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="pengetahuan.php">Pengetahuan</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="kesehatan.php">Kesehatan</a>
-                            </li> -->
-                            <?php
-                            foreach($pg_category as $pg){
-                                $category_name = $pg->category;
-                            ?>
-                            <li class="nav-item">
-                            <?php 
-                                echo "<a class='nav-link active' aria-current='page' href='page.php?CategoryName=$category_name&'><p class='text-capitalize'>$category_name</p></a>";
-                            ?>
                             </li>
                             <?php
-                            }
+                            // foreach($pg_category as $pg){
+                            //     $category_name = $pg->category;
+                            ?>
+                            <li class="nav-item">
+                            <!-- <?php 
+                                echo "<a class='nav-link active' aria-current='page' href='page.php?CategoryName=$category_name&'><p class='text-capitalize'>$category_name</p></a>";
+                            ?> -->
+                                
+                            </li>
+                            <?php
+                            // }
                             ?>
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="aboutUs.php">About Us</a>
@@ -78,12 +82,12 @@ $pg_category = $db->category->find();
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li class="nav-item dropdown">
                                     <a class="nav-link text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <?php echo $user->name ?> 
+                                    Yoel
                                        <img src="../images/profil.png" class="rounded-circle" width="25" height="25">
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                         <li><a class="dropdown-item" href="profil.php">Profil</a></li>
-                                        <li><a class="dropdown-item" href="../logout.php">Logout</a></li>
+                                        <!-- <li><a class="dropdown-item" href="../logout.php">Logout</a></li> -->
                                     </ul>
                                 </li>
                             </ul>    
