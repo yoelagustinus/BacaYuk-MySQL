@@ -113,13 +113,13 @@
                 echo '<script language="javascript">
                         window.alert("LOGIN GAGAL! Silakan coba lagi");
                         window.location.href="login.php";
-                      </script>';
+                    </script>';
             }
         }else{
             echo '<script language="javascript">
                         window.alert("LOGIN GAGAL! Silakan coba lagi");
                         window.location.href="login.php";
-                      </script>';
+                    </script>';
         }
 
     }
@@ -138,7 +138,7 @@
 
     function LogoutAdmin(){
         session_start();
- 
+
         // Unset all of the session variables
         $_SESSION = array();
         
