@@ -1,89 +1,86 @@
 <?php
-    require 'header.php';
-
-    if (isset($_SESSION['success'])) {
-        
-        echo '<div class="alert alert-success d-flex align-items-center" role="alert">
-            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-            <div>
-            '.$_SESSION['success'].'
-            </div>
-        </div>';
-        unset($_SESSION["success"]);
+    session_start();
+    if (isset($_SESSION['username'])) {
+        header("Location: PendingComment.php");
     }
 
-    if(isset($_POST['delete'])){
-        $id = $_POST['content_id'];
-        
-        $content = $db->post->deleteOne([
-            '_id' => new MongoDB\BSON\ObjectID($id)
-        ]);
-    
-        $_SESSION['success'] = "Content telah Berhasil dihapus";
-        header("Location: index.php");
+    include '../controller/config.php';
+
+    if(isset($_POST['login_user'])){
+        $conn_db = connect_db();
+        $username = $_POST['username']; 
+        $userpass = $_POST['password'];
+
+        $sql = mysqli_query($conn_db, "SELECT username, password FROM wp_admin WHERE username = '$username'");
+
+        list($username, $password) = mysqli_fetch_array($sql);
+
+        if(mysqli_num_rows($sql) > 0) {
+
+            if(password_verify($userpass, $password)) {
+
+                //buat session baru
+                
+                $_SESSION['username'] = $username;
+                header("Location: PendingComment.php");
+                echo "<meta http-equiv='refresh' content='0'>";
+                die();
+            }else {
+                echo '<script language="javascript">
+                        window.alert("LOGIN GAGAL! Silakan coba lagi");
+                        window.location.href="./";
+                      </script>';
+            }
+        }else {
+            echo '<script language="javascript">
+                    window.alert("LOGIN GAGAL! Silakan coba lagi");
+                    window.location.href="./";
+                  </script>';
+        }
     }
 
 ?>
 
 <!DOCTYPE html>
-<html>
-<head>
+<html?>
+    <head>
+        <title>Login Admin WarungSaTeKaMu March Campaign</title>
+        <link rel="stylesheet" type="text/css" href="assets/css/style-form.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 
-</head>
-<body>
+    </head>
 
-<br>
-<div class="container">
-    <!-- <button type="button" class="btn btn-primary">Add New Konten</button> -->
-    <?php echo "<a href='CreateContent.php'><button type='button' class='btn btn-success'>Add New Konten</button></a>"; ?>
-    <br><br>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <!-- <th scope="col">#</th> -->
-                <th scope="col">Judul Konten</th>
-                <th scope="col">Kategori</th>
-                <th scope="col">Tanggal Upload</th>
-                <th scope="col-2">Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-                
-                $cursor = $db->post->find();
-                foreach($cursor as $post){
-                    $id_content = $post->_id;
-                    
-            ?>
-                    <tr>
-                        <!-- <th scope="row">1</th> -->
-                        <td><?php echo $post->title ?></td>
-                        <td><?php echo $post->category ?></td>
-                        <td><?php echo $post->created_at ?></td>
-                        <td>
-                            <?php echo "<a href='EditContent.php?ContentId=$id_content&'><button type='button' class='btn btn-primary'>Edit</button></a>"; ?>
-                        </td>
-                        <td>    
-                            <form method="POST" action="">
-                                <div class="form-group">
-                                    <input type="hidden" value="<?php echo $id_content; ?>" class="form-control" name="content_id" id="content_id">
-                                    
-                                </div>
-                                <button type="submit" name="delete" id="delete" class="btn btn-danger">Hapus</button>
-                            </form>
-                        </td>
-                    </tr>
-            <?php
-                
-
-                }
-            ?>
+    <body>
+        <div class="header">
+            <h2>Login for Admin WarungSaTeKaMu</h2>
+        </div>
             
-        </tbody>
-    </table>
-</div>
+        <form method="POST" action="">
+            <div class="input-group">
+                <label>Username</label>
+                <input type="text" name="username" >
+            </div>
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" name="password" id="id_password" required=""> 
+                <i class="far fa-eye" id="togglePassword" style="margin-left: -30px; cursor: pointer;"></i>
+            </div>
+            <div class="input-group">
+                <button type="submit" class="btn" name="login_user">Login</button>
+            </div>
+        </form>
+    </body>
 
-
-
-</body>
-
+    <script>
+        const togglePassword = document.querySelector('#togglePassword');
+        const password = document.querySelector('#id_password');
+        
+        togglePassword.addEventListener('click', function (e) {
+            // toggle the type attribute
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            // toggle the eye slash icon
+            this.classList.toggle('fa-eye-slash');
+        });
+	</script>
+</html>
