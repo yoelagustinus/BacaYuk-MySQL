@@ -1,4 +1,5 @@
 <?php
+    $page2='edit_comment';
     $page='spam_comment';
     require 'header.php';
     include '../controller/AdminController.php';
@@ -16,7 +17,7 @@
 
 ?>
 
-<div class="container-fluid">
+<div class="container">
     <h2 style="margin-top: 2rem;">Spam Comments</h2>
     <div class="table-responsive">
         <table class="table table-dark table-striped">
