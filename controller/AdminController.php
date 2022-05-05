@@ -94,7 +94,17 @@
         $row = mysqli_query($conn_db, $sql);
         
         return $row;
-    }  
+    }
+
+    function ViewListContent($category){
+        $conn_db = connect_db();
+
+        $sql = "SELECT * from tbl_content WHERE content_category='$category'";
+
+        $row = mysqli_query($conn_db, $sql);
+
+        return $row;
+    }
 
     function LoginAdmin($username, $userpass){
         $conn_db = connect_db();
