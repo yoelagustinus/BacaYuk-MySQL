@@ -1,4 +1,5 @@
 <?php
+    $page2='edit_comment';
     $page='pending_comment';
     require 'header.php';
     include '../controller/AdminController.php';
@@ -13,7 +14,7 @@
 
 ?>
 
-<div class="container-fluid">
+<div class="container">
     <h2 style="margin-top: 2rem;">Pending Comments</h2>
     <div class="table-responsive">
         
