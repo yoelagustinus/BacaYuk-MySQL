@@ -1,10 +1,10 @@
 <?php
-    session_start();
+    // session_start();
 
-    //jika tidak ada session/session kosong, maka user akan di arahkan ke halaman login
-    if (empty($_SESSION['username'])) {
-        header("Location: ./");
-    }
+    // //jika tidak ada session/session kosong, maka user akan di arahkan ke halaman login
+    // if (empty($_SESSION['username'])) {
+    //     header("Location: ./");
+    // }
 ?>
 <!doctype html>
 <html lang="en">
@@ -21,7 +21,7 @@
 
     <body>
 
-        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#994650;">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="">
             <div class="container">
                 <a class="navbar-brand">Admin Project Panel</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,8 +32,9 @@
                     
                     <li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Edit Comment
+                            <a class="nav-link dropdown-toggle <?php if($page2=='edit_comment'){echo 'active';}?>" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="../images/icons-comment.png" class="comment_icon" style="width: 1rem;">
+                                Edit Comments
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <li>
@@ -49,7 +50,14 @@
                         </li>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link <?php if($page=='list_content'){echo 'active';}?>" href="ListContent.php">ListContent</a>
+                        <a class="nav-link <?php if($page=='list_content'){echo 'active';}?>" href="ListPost.php">
+                        <img src="../images/icons-post.png" class="comment_icon" style="width: 1rem;">
+                        Posts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link <?php if($page=='list_user'){echo 'active';}?>" href="ListUser.php">
+                        <img src="../images/icons-user.gif" class="comment_icon" style="width: 1rem;">
+                        Users</a>
                     </li>
 
                 </ul>
