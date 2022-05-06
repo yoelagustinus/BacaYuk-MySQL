@@ -8,6 +8,11 @@
             header("Location: ../admin/PendingComment.php");
         }
     }
+    if(isset($_GET['content_id'])){
+        $id_content = $_GET['content_id'];
+        ActionDeleteContent($id_content);
+        header("Location: ../admin/ListPost.php");
+    }
     
     //if isset dari button or a href with name??
 
@@ -54,8 +59,19 @@
         }
     }
 
+    function cutString($text){
+        if(empty($text)){
+            $newText = '';
+        }else{
+            $newText = substr($text, 0, 200);
+            $newText .='...';
+        }
+
+        return $newText;
+    }
+
     function ActionDeleteComment($id_comment){
-        //dete
+        //delete
         $conn_db = connect_db();
 
         $sql = "DELETE FROM tbl_comment WHERE commentId='$id_comment'";
@@ -96,14 +112,22 @@
         return $row;
     }
 
-    function ViewListContent($category){
+    function ViewListContent(){
         $conn_db = connect_db();
 
-        $sql = "SELECT * from tbl_content WHERE content_category='$category'";
+        $sql = "SELECT * from tbl_content ORDER BY content_id DESC";
 
         $row = mysqli_query($conn_db, $sql);
 
         return $row;
+    }
+
+    function ActionDeleteContent($id_content){
+        $conn_db = connect_db();
+
+        $sql = "DELETE FROM tbl_content WHERE content_id='$id_content'";
+
+        mysqli_query($conn_db, $sql);
     }
 
     function LoginAdmin($username, $userpass){
