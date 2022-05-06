@@ -164,11 +164,12 @@
         return $row;
     }
 
-    function UpdateCategory(){
+    function UpdateCategory($category_id, $category_name){
         $conn_db = connect_db();
-        $sql = "";
+        $sql = "UPDATE tbl_category SET category_name='$category_name' WHERE category_id='$category_id'";
 
-        mysqli_query($conn_db, $sql);
+        $row = mysqli_query($conn_db, $sql);
+
         header("Location: ../admin/ListCategory.php");
     }
 
