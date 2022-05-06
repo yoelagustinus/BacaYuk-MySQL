@@ -43,9 +43,6 @@
                     <td><?php echo $data[5]?></td>
                     <td>
                         <a type="submit" href="" name="edit_button" class="btn btn-primary" value="edit">Edit</a>
-                        <!-- <form method="POST" action="">
-                            <input type="submit" name="delete_post_button" class="btn btn-danger" value="Delete">
-                        </form> -->
                         <a type="submit" href="../controller/AdminController.php?content_id=<?php echo $content_id?>&" name="edit_button" class="btn btn-danger" value="delete">Delete</a>
                     </td>
                 </tr>
