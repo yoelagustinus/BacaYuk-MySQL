@@ -3,18 +3,23 @@
     require 'header.php';
     include '../controller/AdminController.php';
 
+    if(isset($_POST['delete_post_button']) && isset($_POST['content_id'])){
+        $id_content = $_POST['content_id'];
+        ActionDeletePost($id_content);
+    }
+
 ?>
 
 <div class="container">
     <h2 style="margin-top: 2rem;">Posts</h2>
-    <a type="button" style="margin-bottom: 1rem;" class="btn btn-success" href="AddNewContent.php">Add New Post</a>
+    <a type="button" style="margin-bottom: 1rem;" class="btn btn-success" href="AddNewPost.php">Add New Post</a>
     <div class="table-responsive">
         
         <table class="table table-primary table-striped">
             <thead>
                 <tr>
-                    <!-- <th scope="col">#</th> -->
-                    <th scope="col" style="width: 37rem;">Post Title</th>
+                    <th scope="col">Post Title</th>
+                    <th scope="col" style="width: 37rem;">The Content</th>
                     <th scope="col">Category</th>
                     <th scope="col">Published Date</th>
                     <th scope="col">Actions</th>
@@ -23,26 +28,26 @@
             </thead>
             <tbody>
                 <?php
-                    $result = ViewPendingComment();
+                    $result = ViewListContent();
                     $i = 0;
                     if(mysqli_num_rows($result)){
                         while($data = mysqli_fetch_array($result)){
                             $i++;
-                            $comment_id= $data[0];
-                            $status = printStatusComment($data[5]);
+                            $content_id = $data[0];
+                            
                 ?>
                 <tr>
-                    <!-- <th scope="row">1</th> -->
-                    <td><?php echo $data[2] . "<br>" . $data[3]?></td>
-                    <td><?php echo $data[4]?> <br>
-                        <form action="" method="POST">
-                            <input type="hidden" name="comment_id" value="<?php echo $comment_id?>">
-                            <input type="submit" name="approve_button" class="btn btn-success" value="Approve" style="margin-right: 0.5rem;">
-                            <input type="submit" name="spam_button" class="btn btn-secondary" value="Spam">
-                        </form>
-                    </td>
                     <td><?php echo $data[1]?></td>
-                    <td><?php echo $status?></td>
+                    <td><?php echo cutString($data[2])?></td>
+                    <td><?php echo $data[3]?></td>
+                    <td><?php echo $data[5]?></td>
+                    <td>
+                        <a type="submit" href="" name="edit_button" class="btn btn-primary" value="edit">Edit</a>
+                        <!-- <form method="POST" action="">
+                            <input type="submit" name="delete_post_button" class="btn btn-danger" value="Delete">
+                        </form> -->
+                        <a type="submit" href="../controller/AdminController.php?content_id=<?php echo $content_id?>&" name="edit_button" class="btn btn-danger" value="delete">Delete</a>
+                    </td>
                 </tr>
                 <?php
                         }
