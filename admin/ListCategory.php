@@ -6,6 +6,17 @@
     if(isset($_POST['create_category']) && isset($_POST['name_category'])){
         CreateNewCategory($_POST['name_category']);
     }
+    else if(isset($_POST['btn_update_category'])){
+        $id_update_category = $_POST['category_update_id'];
+        $text_update = $_POST['text_update_category'];
+
+        echo $id_update_category . "<br>";
+        echo $text_update . '<br>';
+
+        $r = UpdateCategory($id_update_category, $text_update);
+
+        echo $r;
+    }
 
 ?>
 
@@ -54,9 +65,9 @@
                 <tr>
                     <td>
                         <form action="" method="POST">
-                            <input type="text" name="update_category" value=<?php echo $data[1]?>>
+                            <input type="text" name="text_update_category" value="<?php echo $data[1]?>">
 
-                            <input type="hidden" name="category_id" value="<?php echo $category_id?>">
+                            <input type="hidden" name="category_update_id" value="<?php echo $category_id?>">
                         
                         
                     </td>
