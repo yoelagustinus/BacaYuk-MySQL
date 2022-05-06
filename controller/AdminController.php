@@ -16,6 +16,30 @@
     
     //if isset dari button or a href with name??
 
+    function cutString($text){
+        if(empty($text)){
+            $newText = '';
+        }else{
+            $newText = substr($text, 0, 200);
+            $newText .='...';
+        }
+
+        return $newText;
+    }
+
+    function printStatusComment($input){
+        if($input == 1){
+            $status = "Approved Comment";
+        }else if($input == 0){
+            $status = "Pending Comment";
+        }else if($input == 2){
+            $status = "Spam Comment";
+        }
+
+        return $status;
+    }
+
+    // action pending, approve, spam, delete comment
     function ActionBeApprovedComment($id_comment, $page){
         //Update row, column CommentStatus 0 -> 1
         $conn_db = connect_db();
@@ -59,17 +83,6 @@
         }
     }
 
-    function cutString($text){
-        if(empty($text)){
-            $newText = '';
-        }else{
-            $newText = substr($text, 0, 200);
-            $newText .='...';
-        }
-
-        return $newText;
-    }
-
     function ActionDeleteComment($id_comment){
         //delete
         $conn_db = connect_db();
@@ -81,6 +94,7 @@
         
     }
 
+    // view list Pending, spam, approve comment
     function ViewPendingComment(){
         //select row komentar yang CommentStatusnya 0
         $conn_db = connect_db();
@@ -112,6 +126,7 @@
         return $row;
     }
 
+    //From Post / content Action
     function ViewListContent(){
         $conn_db = connect_db();
 
@@ -126,6 +141,23 @@
         $conn_db = connect_db();
 
         $sql = "DELETE FROM tbl_content WHERE content_id='$id_content'";
+
+        mysqli_query($conn_db, $sql);
+    }
+
+    function CreateNewCategory($name_category){
+        $conn_db = connect_db();
+
+        $sql = "INSERT INTO tbl_category(category_name) VALUES ('$name_category')";
+
+        mysqli_query($conn_db, $sql);
+        header("Location: ../admin/ListCategory.php");
+    }
+
+    function ViewListCategory(){
+        $conn_db = connect_db();
+
+        $sql = "";
 
         mysqli_query($conn_db, $sql);
     }
@@ -156,18 +188,6 @@
                     </script>';
         }
 
-    }
-
-    function printStatusComment($input){
-        if($input == 1){
-            $status = "Approved Comment";
-        }else if($input == 0){
-            $status = "Pending Comment";
-        }else if($input == 2){
-            $status = "Spam Comment";
-        }
-
-        return $status;
     }
 
     function LogoutAdmin(){
