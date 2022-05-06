@@ -26,7 +26,7 @@
                 
             </tbody>
         </table>
-        <button id="create_category" name="create_category" class="btn btn-success">Create Category</button>
+        <input type="submit" id="create_category" name="create_category" class="btn btn-success" value="Create Category">
     </form>
 
     <br><br>
@@ -40,29 +40,38 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- Output List Category -->
-                <!-- <?php
-                    $category = $db->category->find();
-                    foreach($category as $ctgr){
-                        $id_category = $ctgr->_id;
-                ?> 
+
+                <?php
+                    $result = ViewListCategory();
+                    $i = 0;
+                    if(mysqli_num_rows($result)){
+                        while($data = mysqli_fetch_array($result)){
+                            $i++;
+                            $category_id = $data[0];
+                            
+                            
+                ?>
                 <tr>
                     <td>
-                        <?php echo $ctgr->category ?>
+                        <form action="" method="POST">
+                            <input type="text" name="update_category" value=<?php echo $data[1]?>>
+
+                            <input type="hidden" name="category_id" value="<?php echo $category_id?>">
+                        
+                        
                     </td>
                     <td>
-                        <form method="POST" action="">
-                            <div class="form-group">
-                                <input type="hidden" value="<?php echo $id_category; ?>" class="form-control" name="category_id" id="category_id">
-                                
-                            </div>
-                            <button type="submit" name="delete" id="delete" class="btn btn-danger">Hapus</button>
+                            <input type="submit" name="btn_update_category" class="btn btn-success" value="Update">
                         </form>
                     </td>
                 </tr>
                 <?php
+                        }
+                        echo "found: " . $i . " Results!";
+                    }else{
+                        echo "found: 0 Results!";
                     }
-                ?> -->
+                ?>
             </tbody>
         </table>
         
