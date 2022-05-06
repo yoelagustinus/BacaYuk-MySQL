@@ -15,7 +15,7 @@
 
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
+        <link rel="shortcut icon" href="https://www.warungsatekamu.org/wp-content/uploads/2021/09/logo-Satee-02.png">
         <title>Admin Project Panel</title>
     </head>
 
@@ -23,7 +23,10 @@
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light" style="">
             <div class="container">
-                <a class="navbar-brand">Admin Project Panel</a>
+                <a class="navbar-brand">
+                <img src="https://www.warungsatekamu.org/wp-content/uploads/2021/09/logo-Satee-02.png" height="40">
+                    Admin Project Panel
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
