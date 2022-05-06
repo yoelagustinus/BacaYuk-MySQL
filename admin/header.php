@@ -36,7 +36,7 @@
                     <li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle <?php if($page2=='edit_comment'){echo 'active';}?>" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="../images/icons-comment.png" class="comment_icon" style="width: 1rem;">
+                                <img src="../images/icons-comment.png" style="width: 1rem;">
                                 Edit Comments
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -54,13 +54,19 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link <?php if($page=='list_content'){echo 'active';}?>" href="ListPost.php">
-                        <img src="../images/icons-post.png" class="comment_icon" style="width: 1rem;">
+                        <img src="../images/icons-post.png" style="width: 1rem;">
                         Posts</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link <?php if($page=='list_user'){echo 'active';}?>" href="ListUser.php">
-                        <img src="../images/icons-user.gif" class="comment_icon" style="width: 1rem;">
+                        <img src="../images/icons-user.gif" style="width: 1rem;">
                         Users</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link <?php if($page=='list_category'){echo 'active';}?>" href="ListCategory.php">
+                        <img src="../images/icons-category.png" style="width: 1rem;">
+                        Category</a>
                     </li>
 
                 </ul>
