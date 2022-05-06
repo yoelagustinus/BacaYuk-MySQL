@@ -157,9 +157,19 @@
     function ViewListCategory(){
         $conn_db = connect_db();
 
+        $sql = "SELECT * from tbl_category ORDER BY category_id DESC";
+
+        $row = mysqli_query($conn_db, $sql);
+
+        return $row;
+    }
+
+    function UpdateCategory(){
+        $conn_db = connect_db();
         $sql = "";
 
         mysqli_query($conn_db, $sql);
+        header("Location: ../admin/ListCategory.php");
     }
 
     function LoginAdmin($username, $userpass){
