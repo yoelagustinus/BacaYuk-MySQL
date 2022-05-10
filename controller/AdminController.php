@@ -145,6 +145,7 @@
         mysqli_query($conn_db, $sql);
     }
 
+    //Create, Retrieve, Update Category
     function CreateNewCategory($name_category){
         $conn_db = connect_db();
 
@@ -173,6 +174,8 @@
         header("Location: ../admin/ListCategory.php");
     }
 
+
+    //Login, Logout Session & Database
     function LoginAdmin($username, $userpass){
         $conn_db = connect_db();
         $sql = "SELECT username, password FROM wp_admin WHERE username = '$username'";
