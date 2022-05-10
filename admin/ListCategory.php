@@ -22,7 +22,7 @@
 
 <div class="container">
     <br>
-    <p class="fs-2">Menambah Category Baru</p>
+    <p class="fs-2">Add New Category</p>
     <form action="" method="POST" enctype="multipart/form-data">
         <table class="table">
             <tbody>
