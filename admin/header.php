@@ -21,7 +21,7 @@
 
     <body>
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="">
+        <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light" style="">
             <div class="container">
                 <a class="navbar-brand">
                 <img src="https://www.warungsatekamu.org/wp-content/uploads/2021/09/logo-Satee-02.png" height="40">
@@ -58,17 +58,15 @@
                         Posts</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link <?php if($page=='list_user'){echo 'active';}?>" href="ListUser.php">
-                        <img src="../images/icons-user.gif" style="width: 1rem;">
-                        Users</a>
-                    </li>
-
-                    <li class="nav-item">
                         <a class="nav-link <?php if($page=='list_category'){echo 'active';}?>" href="ListCategory.php">
                         <img src="../images/icons-category.png" style="width: 1rem;">
                         Category</a>
                     </li>
-
+                    <li class="nav-item">
+                        <a class="nav-link <?php if($page=='list_user'){echo 'active';}?>" href="ListUser.php">
+                        <img src="../images/icons-user.gif" style="width: 1rem;">
+                        Users</a>
+                    </li>
                 </ul>
 
                 
