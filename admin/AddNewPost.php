@@ -3,9 +3,13 @@
     require 'header.php';
     include '../controller/AdminController.php';
 
+    if(isset($_POST[''])){
+
+    }
+
 ?>
 
-<div class="container">
+<div class="container" style="margin-bottom: 3rem;">
     <h2 style="margin-top: 2rem;">Add New Post</h2>
     <form action="" method="POST" enctype="multipart/form-data">
         <table class="table">
@@ -35,9 +39,25 @@
                 <tr>
                     <th scope="row">Kategori Kontent</th>
                     <td>
-                        <!-- <?php
-                            foreach($select_category as $ctgry){
-                                $nama_ctgry = $ctgry->category;
+                        <?php
+                            $result_category = ViewListCategory();
+                            if(mysqli_num_rows($result_category)){
+                                while($ctgry = mysqli_fetch_array($result_category)){
+                                    $nama_ctgry = $ctgry[1];
+                        ?>
+
+                            <div class="form-check">
+                                <input class="form-check-input"  id="flexRadioDefault1" type="radio" name="category" <?php if (isset($category) && $category==$nama_ctgry) echo "checked";?>value=<?php echo $nama_ctgry?> required>
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    <?php echo $nama_ctgry?>
+                                </label>
+                            </div>
+                        <?php
+
+
+                        
+                                }
+                            }
                         ?>
                         
                             <div class="form-check">
@@ -47,8 +67,8 @@
                                 </label>
                             </div>
                         <?php
-                            }
-                        ?>  -->
+                            
+                        ?> 
                         
                     </td>
                 </tr>
