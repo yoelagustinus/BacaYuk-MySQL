@@ -3,8 +3,26 @@
     require 'header.php';
     include '../controller/AdminController.php';
 
-    if(isset($_POST[''])){
+    if(isset($_POST['create_post'])){
+        $title_post = $_POST['title'];
+        $isi_post_konten = $_POST['isi_konten'];
+        $category_post = $_POST['category'];
+        $excerpt_post = $_POST['excerpt_konten'];
 
+        //process image post
+        $filename = $_FILES["uploadfile"]["name"];
+        $tempname = $_FILES["uploadfile"]["tmp_name"];   
+        $save_folder = "../images/posts/".$filename;
+        $db_file_folder = "images/posts/".$filename;
+        $new_name_file = $title_post;
+
+        CreateNewContent($title_post, $isi_post_konten, $category_post, $excerpt_post, $db_file_folder);
+
+        move_uploaded_file($tempname, $save_folder);
+        
+
+
+        
     }
 
 ?>
@@ -32,7 +50,7 @@
                     <th scope="row">Isi Konten</th>
                     <td>
                         <div class="form-floating">
-                            <textarea class="form-control" name= "konten" id="konten" style="height: 500px" required></textarea>
+                            <textarea class="form-control" name="isi_konten" id="konten" style="height: 500px" required></textarea>
                         </div>
                     </td>
                 </tr>
@@ -60,24 +78,22 @@
                             }
                         ?>
                         
-                            <div class="form-check">
-                                <input class="form-check-input"  id="flexRadioDefault1" type="radio" name="category" <?php if (isset($category) && $category==$nama_ctgry) echo "checked";?>value=<?php echo $nama_ctgry?> required>
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                    <?php echo $nama_ctgry?>
-                                </label>
-                            </div>
-                        <?php
-                            
-                        ?> 
-                        
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">Excerpt Post</th>
+                    <td>
+                        <div class="form-floating">
+                            <textarea class="form-control" name="excerpt_konten" id="excerpt" style="height: 8rem"></textarea>
+                        </div>
                     </td>
                 </tr>
 
                 <tr>
-                    <th scope="row">Thumbnail Picture</th>
+                    <th scope="row">Post Picture</th>
                     <td>
                         <div class="col-md-12">
-						    <input id="file" name="file" type="file" placeholder="" class="form-control input-md" required>
+						    <input id="file" name="uploadfile" type="file" placeholder="" class="form-control input-md" required>
 						</div>
                     </td>
                 </tr>
@@ -85,8 +101,7 @@
             </tbody>
         </table>
 
-
-        <button id="create" name="create" class="btn btn-success">Create</button>
+        <input type="submit" name="create_post" class="btn btn-success" value="Create">
 
     </form>
 
