@@ -137,6 +137,14 @@
         return $row;
     }
 
+    function CreateNewContent($title_post, $isi_post, $category_post, $post_excerpt, $filename){
+        $conn_db = connect_db();
+        
+        $sql = "INSERT INTO tbl_content(content_title, the_content, content_category, content_excerpt, name_file) VALUES ('$title_post', '$isi_post', '$category_post', '$post_excerpt', '$filename')";
+
+        mysqli_query($conn_db, $sql);
+    }
+
     function ActionDeleteContent($id_content){
         $conn_db = connect_db();
 
