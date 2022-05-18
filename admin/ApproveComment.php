@@ -15,7 +15,7 @@
 ?>
 
 <div class="container">
-    <h2 style="margin-top: 2rem;">Approved Comments</h2>
+    <h2 style="margin-top: 5rem;">Approved Comments</h2>
     <div class="table-responsive">
         <table class="table table-dark table-striped">
             <thead>
