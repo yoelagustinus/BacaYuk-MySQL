@@ -11,7 +11,7 @@
 ?>
 
 <div class="container">
-    <h2 style="margin-top: 2rem;">Posts</h2>
+    <h2 style="margin-top: 5rem;">Posts</h2>
     <a type="button" style="margin-bottom: 1rem;" class="btn btn-success" href="AddNewPost.php">Add New Post</a>
     <div class="table-responsive">
         
@@ -21,7 +21,7 @@
                     <th scope="col">Post Title</th>
                     <th scope="col" style="width: 37rem;">The Content</th>
                     <th scope="col">Category</th>
-                    <th scope="col">Published Date</th>
+                    <th scope="col">Excerpt</th>
                     <th scope="col">Actions</th>
                 
                 </tr>
@@ -40,10 +40,11 @@
                     <td><?php echo $data[1]?></td>
                     <td><?php echo cutString($data[2])?></td>
                     <td><?php echo $data[3]?></td>
-                    <td><?php echo $data[5]?></td>
+                    <td><?php echo cutString($data[4])?></td>
                     <td>
-                        <a type="submit" href="" name="edit_button" class="btn btn-primary" value="edit">Edit</a>
-                        <a type="submit" href="../controller/AdminController.php?content_id=<?php echo $content_id?>&" name="edit_button" class="btn btn-danger" value="delete">Delete</a>
+                        <a type="submit" href="EditPost.php?content_id=<?php echo $content_id?>&" name="edit_button" class="btn btn-primary" value="edit">Edit</a>
+                        <br>
+                        <a type="submit" href="../controller/AdminController.php?content_id=<?php echo $content_id?>&fn=DeletePost&" name="edit_button" class="btn btn-danger" value="delete">Delete</a>
                     </td>
                 </tr>
                 <?php
