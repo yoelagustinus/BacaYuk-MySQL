@@ -6,7 +6,7 @@
 ?>
 
 <div class="container">
-    <h2 style="margin-top: 2rem;">List Users</h2>
+    <h2 style="margin-top: 5rem;">List Users</h2>
     <div class="table-responsive">
         
         <table class="table table-primary table-striped">
