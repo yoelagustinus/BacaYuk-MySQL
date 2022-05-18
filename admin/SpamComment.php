@@ -18,7 +18,7 @@
 ?>
 
 <div class="container">
-    <h2 style="margin-top: 2rem;">Spam Comments</h2>
+    <h2 style="margin-top: 5rem;">Spam Comments</h2>
     <div class="table-responsive">
         <table class="table table-dark table-striped">
             <thead>
