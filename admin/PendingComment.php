@@ -15,7 +15,7 @@
 ?>
 
 <div class="container">
-    <h2 style="margin-top: 2rem;">Pending Comments</h2>
+    <h2 style="margin-top: 5rem;">Pending Comments</h2>
     <div class="table-responsive">
         
         <table class="table table-dark table-striped">
