@@ -4,15 +4,17 @@
     if(isset($_GET['fn'])){
         if($_GET['fn'] == "log_out"){
             LogoutAdmin();
+        }else if($_GET['fn'] == "DeletePost"){
+            if(isset($_GET['content_id'])){
+                $id_content = $_GET['content_id'];
+                ActionDeleteContent($id_content);
+                header("Location: ../admin/ListPost.php");
+            }
         }else{
             header("Location: ../admin/PendingComment.php");
         }
     }
-    if(isset($_GET['content_id'])){
-        $id_content = $_GET['content_id'];
-        ActionDeleteContent($id_content);
-        header("Location: ../admin/ListPost.php");
-    }
+    
     
     //if isset dari button or a href with name??
 
@@ -20,7 +22,7 @@
         if(empty($text)){
             $newText = '';
         }else{
-            $newText = substr($text, 0, 200);
+            $newText = substr($text, 0, 100);
             $newText .='...';
         }
 
@@ -177,6 +179,15 @@
         $conn_db = connect_db();
         $sql = "UPDATE tbl_category SET category_name='$category_name' WHERE category_id='$category_id'";
 
+        $row = mysqli_query($conn_db, $sql);
+
+        header("Location: ../admin/ListCategory.php");
+    }
+
+    function DeleteCategory($category_id){
+        $conn_db = connect_db();
+
+        $sql = "DELETE FROM tbl_category WHERE category_id='$category_id'";
         $row = mysqli_query($conn_db, $sql);
 
         header("Location: ../admin/ListCategory.php");
