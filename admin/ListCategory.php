@@ -10,19 +10,23 @@
         $id_update_category = $_POST['category_update_id'];
         $text_update = $_POST['text_update_category'];
 
-        echo $id_update_category . "<br>";
-        echo $text_update . '<br>';
+        
 
-        $r = UpdateCategory($id_update_category, $text_update);
+        UpdateCategory($id_update_category, $text_update);
 
-        echo $r;
+        
+    }else if(isset($_POST['btn_delete_category'])){
+        $id_delete_category = $_POST['category_delete_id'];
+
+        DeleteCategory($id_delete_category);
+
     }
 
 ?>
 
 <div class="container">
-    <br>
-    <p class="fs-2">Add New Category</p>
+    
+    <h2 style="margin-top: 5rem;">Add New Category</h2>
     <form action="" method="POST" enctype="multipart/form-data">
         <table class="table">
             <tbody>
@@ -39,9 +43,8 @@
         </table>
         <input type="submit" id="create_category" name="create_category" class="btn btn-success" value="Create Category">
     </form>
-
-    <br><br>
-    <p class="fs-2">List Category</p>
+    
+    <h3 style="margin-top: 5rem;">List Category</h3>
     
         <table class="table table-striped">
             <thead>
@@ -71,8 +74,15 @@
                         
                         
                     </td>
-                    <td>
+                    <td style="width: 2rem;">
                             <input type="submit" name="btn_update_category" class="btn btn-success" value="Update">
+                        </form>
+                    </td>
+                    <td>
+                        <form action="" method="POST">
+                            <input type="hidden" name="category_delete_id" value="<?php echo $category_id?>">
+
+                            <input type="submit" class="btn btn-danger" name="btn_delete_category" value="Delete">
                         </form>
                     </td>
                 </tr>
