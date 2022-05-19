@@ -19,7 +19,7 @@
             <thead>
                 <tr>
                     <th scope="col">Post Title</th>
-                    <th scope="col" style="width: 37rem;">The Content</th>
+                    <th scope="col">The Content</th>
                     <th scope="col">Category</th>
                     <th scope="col">Excerpt</th>
                     <th scope="col">Actions</th>

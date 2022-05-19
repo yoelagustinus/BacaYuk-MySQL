@@ -41,6 +41,13 @@
         return $status;
     }
 
+    function ReplaceEmbed($input){
+        $str = '/watch?v=/';
+        $replace = '/embed/';
+        $new_replace = str_replace($str, $replace, $input);
+        return $new_replace;
+    }
+
     // action pending, approve, spam, delete comment
     function ActionBeApprovedComment($id_comment, $page){
         //Update row, column CommentStatus 0 -> 1
@@ -139,12 +146,43 @@
         return $row;
     }
 
-    function CreateNewContent($title_post, $isi_post, $category_post, $post_excerpt, $filename){
+    function ViewListContentEveryEach($id_content){
+        $conn_db = connect_db();
+
+        $sql = "SELECT * from tbl_content WHERE content_id='$id_content'";
+
+        $row = mysqli_query($conn_db, $sql);
+
+        return $row;
+    }
+
+    function CreateNewContent($title_post, $isi_post, $category_post, $post_excerpt, $link_youtube, $filename){
         $conn_db = connect_db();
         
-        $sql = "INSERT INTO tbl_content(content_title, the_content, content_category, content_excerpt, name_file) VALUES ('$title_post', '$isi_post', '$category_post', '$post_excerpt', '$filename')";
+        $sql = "INSERT INTO tbl_content(content_title, the_content, content_category, content_excerpt, youtube_link, name_file) VALUES ('$title_post', '$isi_post', '$category_post', '$post_excerpt', '$link_youtube', '$filename')";
 
         mysqli_query($conn_db, $sql);
+        echo '<script language="javascript">
+                        window.alert("Berhasil Membuat Content");
+                        window.location.href="../admin/ListPost.php";
+                    </script>';
+    }
+
+    function UpdateContent($id_content, $title_post, $isi_post, $category_post, $post_excerpt, $link_youtube, $filename){
+        $conn_db = connect_db();
+
+        if(!empty($filename)){
+            $sql = "UPDATE tbl_content SET content_title='$title_post', the_content='$isi_post', content_category='$category_post', content_excerpt='$post_excerpt', youtube_link='$link_youtube', name_file='$filename' WHERE content_id='$id_content'";
+        }else{
+            $sql = "UPDATE tbl_content SET content_title='$title_post', the_content='$isi_post', content_category='$category_post', content_excerpt='$post_excerpt', youtube_link='$link_youtube' WHERE content_id='$id_content'";
+        }
+
+        mysqli_query($conn_db, $sql);
+
+        echo    '<script language="javascript">';
+        echo        'window.alert("Berhasil Update Content '. $title_post .'");';
+        echo        'window.location.href="../admin/ListPost.php";';
+        echo    '</script>';
     }
 
     function ActionDeleteContent($id_content){
@@ -162,7 +200,7 @@
         $sql = "INSERT INTO tbl_category(category_name) VALUES ('$name_category')";
 
         mysqli_query($conn_db, $sql);
-        header("Location: ../admin/ListCategory.php");
+        header("Location: ../admin/ListPost.php");
     }
 
     function ViewListCategory(){

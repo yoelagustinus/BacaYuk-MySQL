@@ -8,19 +8,19 @@
         $isi_post_konten = $_POST['isi_konten'];
         $category_post = $_POST['category'];
         $excerpt_post = $_POST['excerpt_konten'];
+        $link_youtube = $_POST['link_youtube'];
 
         //process image post
         $filename = $_FILES["uploadfile"]["name"];
         $tempname = $_FILES["uploadfile"]["tmp_name"];   
         $save_folder = "../images/posts/".$filename;
-        $db_file_folder = "images/posts/".$filename;
+        $db_file_folder = $filename;
         $new_name_file = $title_post;
 
-        CreateNewContent($title_post, $isi_post_konten, $category_post, $excerpt_post, $db_file_folder);
-
         move_uploaded_file($tempname, $save_folder);
+        CreateNewContent($title_post, $isi_post_konten, $category_post, $excerpt_post, $link_youtube, $db_file_folder);
         
-
+        
 
         
     }
@@ -59,7 +59,7 @@
                     <th scope="row">Isi Konten</th>
                     <td>
                         <div class="form-floating">
-                            <textarea class="form-control" name="isi_konten" id="konten" style="height: 500px" required></textarea>
+                            <textarea class="form-control" name="isi_konten" id="konten" style="height: 500px"></textarea>
                         </div>
                     </td>
                 </tr>
@@ -103,10 +103,20 @@
                 </tr>
 
                 <tr>
+                    <th scope="row">Link for Youtube</th>
+                    <td>
+                        <div class="col-md-12">
+                            <p>Digunakan untuk Embed Link Youtube:</p>
+                            <textarea class="form-control" name= "link_youtube" id="link_youtube"></textarea>
+						</div>
+                    </td>
+                </tr>
+
+                <tr>
                     <th scope="row">Post Picture</th>
                     <td>
                         <div class="col-md-12">
-						    <input id="file" name="uploadfile" type="file" placeholder="" class="form-control input-md" required>
+						    <input id="file" name="uploadfile" type="file" placeholder="" class="form-control input-md" accept=".jpg, .jpeg, .png">
 						</div>
                     </td>
                 </tr>
