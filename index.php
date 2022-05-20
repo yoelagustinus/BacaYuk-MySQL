@@ -52,20 +52,20 @@
                 <div class="row row-cols-1 row-cols-md-2 g-4">
         
                     <div class="col each-artikel">
-                      
-                      
+                    
+                    
                         <a href="artikel.php"><img src="images/slide1.jpg" class="card-img-top images-artikel" alt="card0"></a>
                         <div class="card-body">
                             <h5 class="card-title"><a href="artikel.php">Lorem Ipsum</a></h5>
                             <p class="card-text">Enim anim ipsum cupidatat dolore sunt ea minim labore non veniam dolor tempor anim id. Reprehenderit consectetur adipisicing incididunt laboris nulla aliquip et et esse incididunt incididunt ex dolore. Ipsum commodo aliqua magna incididunt non in aute velit sunt. Irure veniam labore voluptate veniam proident duis do in id ea fugiat. Consequat officia sint commodo pariatur qui pariatur amet. Deserunt deserunt minim nostrud incididunt cillum ullamco commodo. Proident qui in dolore commodo dolore amet commodo consectetur.</p>
                         
                         </div>
-                      
+                    
                     </div>
         
                     <div class="col each-artikel">
-                      
-                      
+                    
+                    
                         <a href="artikel.php"><img src="images/slide1.jpg" class="card-img-top images-artikel" alt="card0"></a>
                         <div class="card-body">
                             <h5 class="card-title"><a href="artikel.php">Lorem Ipsum</a></h5>
@@ -76,8 +76,7 @@
                     </div>
 
                     <div class="col each-artikel">
-                      
-                      
+                    
                         <a href="artikel.php"><img src="images/slide1.jpg" class="card-img-top images-artikel" alt="card0"></a>
                         <div class="card-body">
                             <h5 class="card-title"><a href="artikel.php">Lorem Ipsum</a></h5>
@@ -88,8 +87,8 @@
                     </div>
 
                     <div class="col each-artikel">
-                      
-                      
+                    
+                    
                         <img src="images/tipo_ODB.jpeg" class="card-img-top images-artikel" alt="card0">
                         <div class="card-body">
                             <h5 class="card-title">Lorem Ipsum</h5>
@@ -100,8 +99,8 @@
                     </div>
 
                     <div class="col each-artikel">
-                      
-                      
+                    
+                    
                         <img src="images/tipo_ODB.jpeg" class="card-img-top images-artikel" alt="card0">
                         <div class="card-body">
                             <h5 class="card-title">Lorem Ipsum</h5>
@@ -112,8 +111,8 @@
                     </div>
 
                     <div class="col each-artikel">
-                      
-                      
+                    
+                    
                         <img src="images/tipo_ODB.jpeg" class="card-img-top images-artikel" alt="card0">
 
                         <div class="card-body">
@@ -128,7 +127,7 @@
 
         <div class="section-lembaga" id="konseling-section">
 
-          
+        
             <div class="radius-lembaga">
                 <h5>Rekan Pelayanan</h5>
             </div>
@@ -188,8 +187,8 @@
             
             
             
-         
-          
+        
+        
         </div> 
         
         <div class="section-footer">
