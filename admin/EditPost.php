@@ -88,7 +88,7 @@
                             ?>
 
                                 <div class="form-check">
-                                    <input class="form-check-input"  id="flexRadioDefault1" type="radio" name="category" <?php if (isset($category) && $category==$nama_ctgry) echo "checked";?>value=<?php echo $category?> required>
+                                    <input class="form-check-input"  id="flexRadioDefault1" type="radio" name="category" <?php if (isset($category) && $category==$nama_ctgry) echo "checked";?>value=<?php echo $nama_ctgry?> required>
                                     <label class="form-check-label" for="flexRadioDefault1">
                                         <?php echo $nama_ctgry?>
                                     </label>
