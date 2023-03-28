@@ -3,7 +3,7 @@
 function connect_db(){
     $servername = "localhost";
     $username = "root";
-    $password = "root";
+    $password = "";
     $database = "db_bacayuk";
     
     return mysqli_connect($servername,$username,$password,$database);
