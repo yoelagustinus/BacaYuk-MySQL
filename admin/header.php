@@ -16,7 +16,7 @@
         <!-- Bootstrap CSS -->
         <!-- CSS only -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-        <link rel="shortcut icon" href="https://www.warungsatekamu.org/wp-content/uploads/2021/09/logo-Satee-02.png">
+        <!-- <link rel="shortcut icon" href="https://www.warungsatekamu.org/wp-content/uploads/2021/09/logo-Satee-02.png"> -->
         <title>Admin Project Panel</title>
     </head>
 
@@ -25,7 +25,7 @@
         <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light" style="">
             <div class="container">
                 <a class="navbar-brand">
-                <img src="https://www.warungsatekamu.org/wp-content/uploads/2021/09/logo-Satee-02.png" height="40">
+                    <!-- <img src="https://www.warungsatekamu.org/wp-content/uploads/2021/09/logo-Satee-02.png" height="40"> -->
                     Admin Project Panel
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
