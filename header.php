@@ -12,7 +12,7 @@
         <!-- <link rel="shortcut icon" href="https://www.warungsatekamu.org/wp-content/uploads/2021/09/logo-Satee-02.png"> -->
         <!-- My Style Css -->
         <link href="style.css" rel="stylesheet">
-        <title>Stop Pelecehan Seksual!</title>
+        <title>Baca Yuk.com</title>
         
     </head>
 
